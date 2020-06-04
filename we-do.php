@@ -23,7 +23,7 @@ function WeDoAuthCheck($q) {
   else return false;
 }
 
-function PastaGetAuthAttr($q, $a) {
+function WeDoGetAuthAttr($q, $a) {
   while($r = mysqli_fetch_assoc($q)) $attr = $r[$a];
   return $attr;
 }
