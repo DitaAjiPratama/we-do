@@ -14,8 +14,8 @@ function WeDoConnectDB($h, $u, $p, $db) {
   return $c;
 }
 
-function WeDoAuthQuery($c, $u, $p, $t) {
-  return mysqli_query($c, "SELECT * FROM $t WHERE username = '$u' AND password = '$p' ");
+function WeDoAuthQuery($c, $t, $u, $uv, $p, $pv) {
+  return mysqli_query($c, "SELECT * FROM $t WHERE $u = '$uv' AND $p = '$pv' ");
 }
 
 function WeDoAuthCheck($q) {
