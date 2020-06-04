@@ -7,7 +7,7 @@ function WeDoConnectDB($h, $u, $p, $db) {
       $loc = file_get_contents($db.".sql");
       $c2 = new mysqli($h,$u,$p);
       if ( $c2 -> multi_query($loc) ) break;
-      else exit($c2 -> error); // Not work for multi_query
+      else exit($c2 -> error);
     default: exit($c -> connect_error);
   }
   $c = new mysqli($h,$u,$p,$db);
