@@ -1,16 +1,14 @@
 <?php
 
+function WeDoCreateDB($h, $u, $p, $db) {
+  $loc = file_get_contents($db);
+  $c = new mysqli($h,$u,$p);
+  $c -> multi_query($loc);
+}
+
 function WeDoConnectDB($h, $u, $p, $db) {
-  @$c = new mysqli($h,$u,$p,$db);
-  while ($c -> connect_errno) switch ($c -> connect_error) {
-    case "Unknown database '$db'":
-      $loc = file_get_contents($db.".sql");
-      $c2 = new mysqli($h,$u,$p);
-      if ( $c2 -> multi_query($loc) ) break;
-      else exit($c2 -> error);
-    default: exit($c -> connect_error);
-  }
   $c = new mysqli($h,$u,$p,$db);
+  while($c -> connect_errno) exit($c -> connect_error);
   return $c;
 }
 
