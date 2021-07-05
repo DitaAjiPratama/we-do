@@ -1,6 +1,6 @@
 <?php
 
-function WeDoCreateDB($h, $u, $p, $db) {
+function wd_create_db($h, $u, $p, $db) {
   $loc = file_get_contents($db);
   $c = new mysqli($h,$u,$p);
   $c -> multi_query($loc);

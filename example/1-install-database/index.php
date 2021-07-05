@@ -1,4 +1,4 @@
 <?php
 include "../../we-do.php";
-WeDoCreateDB("localhost", "root", "", "yourdb.sql");
+wd_create_db("localhost", "root", "", "yourdb.sql");
 ?>
