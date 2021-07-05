@@ -5,8 +5,8 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-CREATE DATABASE `wedo_demo`;
-USE `wedo_demo`;
+CREATE DATABASE `wedo`;
+USE `wedo`;
 
 CREATE TABLE `auth` (
   `token` binary(40) NOT NULL,

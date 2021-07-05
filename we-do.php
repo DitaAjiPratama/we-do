@@ -6,27 +6,27 @@ function wd_create_db($h, $u, $p, $db) {
   $c -> multi_query($loc);
 }
 
-function WeDoConnectDB($h, $u, $p, $db) {
+function wd_connect_db($h, $u, $p, $db) {
   $c = new mysqli($h,$u,$p,$db);
   while($c -> connect_errno) exit($c -> connect_error);
   return $c;
 }
 
-function WeDoAuthQuery($c, $t, $u, $uv, $p, $pv) {
+function wd_auth_query($c, $t, $u, $uv, $p, $pv) {
   return mysqli_query($c, "SELECT * FROM $t WHERE $u = '$uv' AND $p = '$pv' ");
 }
 
-function WeDoAuthCheck($q) {
+function wd_auth_check($q) {
   if (mysqli_num_rows($q) == 1) return true;
   else return false;
 }
 
-function WeDoGetAuthAttr($q, $a) {
+function wd_get_auth_attr($q, $a) {
   while($r = mysqli_fetch_assoc($q)) $attr = $r[$a];
   return $attr;
 }
 
-function WeDoLogout($p, $v, $l) {
+function wd_logout($p, $v, $l) {
   if ( isset($p) ) if ($p == $v) {
     session_destroy();
     header("location:$l");
